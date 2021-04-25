@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"math"
 	"os"
@@ -20,24 +19,24 @@ func cmdReader() []int {
 	return intSlice
 }
 
-func scanner() []int {
-	var slice []int
-	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("Type numbers:")
-	for scanner.Scan() {
-		value := scanner.Text()
-		i, err := strconv.Atoi(value)
-		if len(value) == 0 {
-			break
-		}
-		if err != nil {
-			fmt.Println("Enter a valid number or empty line to break")
-		} else {
-			slice = append(slice, i)
-		}
-	}
-	return slice
-}
+//func scanner() []int {
+//	var slice []int
+//	scanner := bufio.NewScanner(os.Stdin)
+//	fmt.Print("Type numbers:")
+//	for scanner.Scan() {
+//		value := scanner.Text()
+//		i, err := strconv.Atoi(value)
+//		if len(value) == 0 {
+//			break
+//		}
+//		if err != nil {
+//			fmt.Println("Enter a valid number or empty line to break")
+//		} else {
+//			slice = append(slice, i)
+//		}
+//	}
+//	return slice
+//}
 
 func factorial (number int)(result int) {
 	result = 1

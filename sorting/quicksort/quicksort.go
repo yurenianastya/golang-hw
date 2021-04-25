@@ -14,7 +14,7 @@ func quickSort(slice []int, getPivot int) {
 
 	slice[pivot], slice[right] = slice[right], slice[pivot]
 
-	for i, _ := range slice {
+	for i := range slice {
 		if slice[i] < slice[right] {
 			slice[left], slice[i] = slice[i], slice[left]
 			left++
