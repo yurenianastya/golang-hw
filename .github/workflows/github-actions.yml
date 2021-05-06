@@ -1,11 +1,12 @@
-on: push
+name: "Golang-hw"
+on: [push, pull_request]
 jobs:
   golang-tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: adding go env
-      uses: actions/setup-go@v2.1.3
+    - uses: actions/setup-go@v2.1.3
     - name: init go mod
       run: go mod init golangtasks
     - name: testing 
@@ -15,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: setting go env
-      uses: actions/setup-go@v2.1.3
+    - uses: actions/setup-go@v2.1.3
     - name: init go mod
       run: go mod init golangtasks
     - name: installing linter
@@ -23,12 +24,11 @@ jobs:
     - name: starting linter
       run: make linter
   sonarcloud:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - name: SonarCloud Scan
-      - uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: SonarCloud Scan
+    - uses: sonarsource/sonarcloud-github-action@master
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
