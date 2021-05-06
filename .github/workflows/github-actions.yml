@@ -1,5 +1,4 @@
-name: GitHub Actions
-on: [push]
+on: [push, pull_request]
 jobs:
   golang-tests:
     runs-on: ubuntu-latest
